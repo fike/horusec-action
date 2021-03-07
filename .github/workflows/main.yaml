@@ -1,3 +1,5 @@
+name: Horusec Scan
+
 on: [push]
 
 jobs:
@@ -5,10 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Horusec Scan
     steps:
+      - name: Checkout 
+        uses: actions/checkout@v2
       - name: Run Horusec
         id: run_horusec
         uses: fike/horusec-action@v0.1
         with:
-          arguments: -p="./" --ignore="**/htmlcov/**, **/deployments/**, **/.git/**, **/**.pyre, **/.venv/**, **/.vscode/**, **/*.env, **/.mypy_cache/**, **/tests/**"
+          arguments: -p="./" --ignore="**/.vscode/**, **/*.env, **/.mypy_cache/**, **/tests/**"
         
 
