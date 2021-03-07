@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Run Horusec
         id: run_horusec
-        uses: fike/horusec-action@v0.1
+        uses: fike/horusec-action@v0.1-alpha
         with:
           arguments: -p="./" --ignore="**/.vscode/**, **/*.env, **/.mypy_cache/**, **/tests/**"
         
