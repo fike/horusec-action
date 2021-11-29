@@ -4,10 +4,8 @@ FROM alpine:latest
 
 COPY entrypoint.sh /entrypoint.sh
 
-RUN apk add curl  && \
-    curl -fsSL  https://horusec.io/bin/latest/linux_x64/horusec -o horusec && \
-    mv horusec /usr/local/bin/horusec && \
-    chmod 0775 /usr/local/bin/horusec /entrypoint.sh
+RUN apk add curl bash sudo && \
+    curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest 
 
 WORKDIR /opt/data
 
