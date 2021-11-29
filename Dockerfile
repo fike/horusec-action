@@ -4,7 +4,7 @@ FROM alpine:latest
 
 COPY entrypoint.sh /entrypoint.sh
 
-RUN apk add curl bash && \
+RUN apk add curl bash sudo && \
     curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest && \
     mv horusec /usr/local/bin/horusec && \
     chmod 0775 /usr/local/bin/horusec /entrypoint.sh
