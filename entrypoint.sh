@@ -2,4 +2,4 @@
 
 horusec version
 
-horusec start -D -e="true" $*
+sh -c "horusec start -D -e=true $*"

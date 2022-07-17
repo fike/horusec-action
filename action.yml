@@ -4,13 +4,12 @@ inputs:
   arguments:
     description: Arguments for horusec
     required: false
-    default: ""
     
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.ignore_files }}
+    - ${{ inputs.arguments }}
 
 
 branding:
