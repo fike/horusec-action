@@ -45,6 +45,24 @@ jobs:
         with:
           arguments: -p="./" --ignore="**/.vscode/**, **/*.env, **/.mypy_cache/**, **/tests/**"
 ```
+By default Horusec returns 0 as error code in any case. This means that your pipeline will not Fail in case of vulnerabilites are found. To change that behaviour you hace to pass the argument -e=true.
+
+Here is an example of how you can use the flag.
+
+```yml
+on: [push]
+
+jobs:
+  checking_code:
+    runs-on: ubuntu-latest
+    name: Horusec Scan
+    steps:
+      - name: Run Horusec
+        id: run_horusec
+        uses: fike/horusec-action@v0.1
+        with:
+          arguments: -e=true -p="./"
+```
 
 ## Known Issue
 
